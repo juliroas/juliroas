@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JULI ROAS</title>
+    <!-- Favicon / Logotipo de pestaña -->
+    <link rel="icon" type="image/png" href="logojuliroasdef.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        espresso: '#2b231f',
+                        terracota: '#b66848',
+                        'terracota-dark': '#9c5539',
+                        ivory: '#F5F0E8',
+                        'ivory-dark': '#E6DEC9'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #2b231f;
+            color: #F5F0E8;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2b231f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b66848;
+            border-radius: 4px;
+        }
+        /* Ocultar barra de desplazamiento en el carrusel manteniendo funcionalidad */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-espresso text-ivory antialiased selection:bg-terracota selection:text-ivory">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-espresso/90 backdrop-blur-md border-b border-ivory/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-full bg-terracota flex items-center justify-center text-ivory font-bold text-sm shadow-md group-hover:scale-105 transition-transform font-serif">
+                    JR
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif font-bold text-lg tracking-wider text-ivory">JULI ROAS</span>
+                    <span class="text-[10px] text-terracota font-semibold tracking-widest uppercase">Media Buyer</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ivory/80">
+                <a href="#sobre-mi" class="hover:text-terracota transition-colors">Sobre mí</a>
+                <a href="#servicios" class="hover:text-terracota transition-colors">Servicios</a>
+                <a href="#metodologia" class="hover:text-terracota transition-colors">Inversión & Método</a>
+                <a href="#testimonios" class="hover:text-terracota transition-colors">Opiniones</a>
+                <a href="#faq" class="hover:text-terracota transition-colors">Preguntas Frecuentes</a>
+                <a href="#contacto" class="hover:text-terracota transition-colors">Contacto</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="https://wa.link/gr3ou4" target="_blank" rel="noopener noreferrer" class="bg-terracota hover:bg-terracota-dark text-ivory px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-lg hover:shadow-terracota/20 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Directo
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-ivory focus:outline-none p-2 rounded-lg hover:bg-ivory/10 transition-colors">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-espresso border-b border-ivory/10 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#sobre-mi" class="block text-ivory/90 hover:text-terracota font-medium transition-colors py-1 mobile-link">Sobre mí</a>
+            <a href="#servicios" class="block text-ivory/90 hover:text-terracota font-medium transition-colors py-1 mobile-link">Servicios</a>
+            <a href="#metodologia" class="block text-ivory/90 hover:text-terracota font-medium transition-colors py-1 mobile-link">Inversión & Método</a>
+            <a href="#testimonios" class="block text-ivory/90 hover:text-terracota font-medium transition-colors py-1 mobile-link">Opiniones</a>
+            <a href="#faq" class="block text-ivory/90 hover:text-terracota font-medium transition-colors py-1 mobile-link">Preguntas Frecuentes</a>
+            <a href="#contacto" class="block text-ivory/90 hover:text-terracota font-medium transition-colors py-1 mobile-link">Contacto</a>
+            <div class="pt-2">
+                <a href="https://wa.link/gr3ou4" target="_blank" rel="noopener noreferrer" class="block text-center bg-terracota hover:bg-terracota-dark text-ivory px-5 py-3 rounded-xl font-medium text-sm transition-all shadow-md mobile-link">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp Directo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Botón de WhatsApp Flotante -->
+    <a href="https://wa.link/gr3ou4" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#22bf5b] text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl transition-transform hover:scale-110 focus:outline-none group" title="Escríbeme por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute right-full mr-3 bg-espresso text-ivory text-xs px-3 py-1.5 rounded-xl shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity border border-ivory/10 font-medium pointer-events-none">
+            ¡Hablemos por WhatsApp!
+        </span>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden bg-gradient-to-b from-espresso via-espresso to-[#251e1a]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-terracota/10 border border-terracota/30 text-terracota text-xs font-semibold tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-terracota animate-pulse"></span>
+                        JULI ROAS | Media Buyer Profesional
+                    </div>
+                    
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ivory leading-[1.15]">
+                        Escala tu negocio con <span class="text-terracota italic">campañas de publicidad rentables</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-ivory/80 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Especialista en <strong class="text-ivory font-semibold">Meta Ads</strong>, Google Ads, estrategia publicitaria, optimización y creación de landings. Arranca con solo <strong class="text-ivory font-semibold">5€ al día</strong> y escala tus ventas sin riesgos.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#contacto" class="w-full sm:w-auto bg-terracota hover:bg-terracota-dark text-ivory px-8 py-4 rounded-xl font-semibold text-base transition-all shadow-xl hover:shadow-terracota/30 flex items-center justify-center gap-3 group">
+                            <span>Empieza ahora con 5€/día</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="https://wa.link/gr3ou4" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-ivory/5 hover:bg-ivory/10 border border-ivory/20 text-ivory px-6 py-4 rounded-xl font-semibold text-base transition-all flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-green-400 text-lg"></i>
+                            <span>Hablemos por WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="pt-8 border-t border-ivory/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="font-serif text-2xl lg:text-3xl font-bold text-terracota">+5k</p>
+                            <p class="text-xs text-ivory/70 mt-1">Inversión gestionada</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl lg:text-3xl font-bold text-terracota">Meta Ads</p>
+                            <p class="text-xs text-ivory/70 mt-1">Especialidad principal</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl lg:text-3xl font-bold text-terracota">5€/día</p>
+                            <p class="text-xs text-ivory/70 mt-1">Testeo inicial</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-terracota to-ivory/30 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+                        <div class="relative bg-espresso border border-ivory/15 rounded-3xl overflow-hidden shadow-2xl p-3 bg-gradient-to-b from-espresso to-[#382e29]">
+                            <img src="IMG_3433 (1).JPG" alt="Júlia - JULI ROAS Media Buyer" class="w-full h-[450px] sm:h-[500px] object-cover rounded-2xl shadow-inner object-top" onerror="this.src='https://placehold.co/600x750/2b231f/F5F0E8?text=JULI+ROAS';">
+                            <div class="absolute bottom-6 left-6 right-6 bg-espresso/90 backdrop-blur-md border border-ivory/10 p-4 rounded-2xl shadow-xl flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-terracota/20 flex items-center justify-center text-terracota text-xl shrink-0 font-serif font-bold">
+                                    JR
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-ivory">Júlia | JULI ROAS</p>
+                                    <p class="text-xs text-terracota font-medium">Media Buyer & Growth Partner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="sobre-mi" class="py-24 bg-[#251e1a] border-t border-ivory/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-sm rounded-3xl overflow-hidden border border-terracota/30 shadow-2xl">
+                        <img src="foto2juliroas.png" alt="Júlia - JULI ROAS Sobre Mí" class="w-full h-[420px] object-cover object-top hover:scale-105 transition-transform duration-500" onerror="this.src='IMG_3433 (1).JPG';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent opacity-85"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="text-xs uppercase tracking-widest text-terracota font-bold">Estrategia & Conversión</span>
+                            <h3 class="font-serif text-xl font-bold text-ivory mt-1">Júlia | JULI ROAS</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracota/10 text-terracota text-xs font-semibold uppercase">
+                        Sobre Mí
+                    </div>
+                    
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-ivory tracking-tight">
+                        Transformo tu inversión publicitaria en <span class="text-terracota italic">clientes reales</span>
+                    </h2>
+
+                    <p class="text-ivory/80 leading-relaxed font-light">
+                        ¡Hola! Soy <strong class="text-ivory font-medium">Júlia (JULI ROAS)</strong>, Media Buyer especializada en crear sistemas de adquisición de clientes altamente rentables. Mi foco principal son las campañas de <strong class="text-ivory font-medium">Meta Ads</strong> (Facebook e Instagram), combinadas con estrategia digital integral.
+                    </p>
+
+                    <p class="text-ivory/80 leading-relaxed font-light">
+                        Sé que empezar a invertir puede generar dudas o temor a desperdiciar presupuesto. Por eso, mi método está diseñado para arrancar con presupuestos muy controlados —como <strong class="text-ivory font-medium">5€ al día en tu primera campaña</strong>— para testear, validar el mercado sin riesgos innecesarios y escalar progresivamente hacia una rentabilidad sólida.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3 bg-espresso/50 p-4 rounded-xl border border-ivory/5">
+                            <div class="text-terracota mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-ivory">Meta Ads & Google Ads</h4>
+                                <p class="text-xs text-ivory/70 mt-0.5">Campañas segmentadas y optimizadas al milímetro.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 bg-espresso/50 p-4 rounded-xl border border-ivory/5">
+                            <div class="text-terracota mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-ivory">Visibilidad Completa</h4>
+                                <p class="text-xs text-ivory/70 mt-0.5">Redes sociales, Google Business y posicionamiento SEO.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://wa.link/gr3ou4" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-terracota hover:text-ivory font-semibold text-sm transition-colors group">
+                            <span>Escríbeme por WhatsApp y hablemos de tu marca</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 bg-espresso relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracota/10 text-terracota text-xs font-semibold uppercase">
+                    Servicios Profesionales
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-ivory">
+                    Soluciones completas para <span class="text-terracota italic">hacer crecer tu negocio</span>
+                </h2>
+                <p class="text-ivory/80 text-base sm:text-lg font-light">
+                    Todo lo necesario para potenciar tu presencia online, captar leads cualificados y multiplicar tus ventas.
+                </p>
+            </div>
+
+            <!-- Services Grid with custom WhatsApp links -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Estrategia -->
+                <div class="bg-[#302722] hover:bg-[#382e29] border border-ivory/10 hover:border-terracota/50 p-8 rounded-3xl transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-terracota/20 text-terracota flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-chess"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-ivory mb-3">Estrategia Publicitaria</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                            Definición exhaustiva de públicos objetivos, mensajes comerciales ganadores y estructura de campaña óptima para maximizar el retorno.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center justify-between">
+                        <span class="text-xs text-terracota font-semibold tracking-wider uppercase">Paso Clave</span>
+                        <a href="https://wa.link/pbfkzp" target="_blank" rel="noopener noreferrer" class="bg-terracota/20 hover:bg-terracota text-ivory px-3 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5">
+                            <span>Saber más</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Meta Ads -->
+                <div class="bg-[#302722] hover:bg-[#382e29] border border-ivory/10 hover:border-terracota/50 p-8 rounded-3xl transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-terracota/20 text-terracota flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-ivory mb-3">Campañas (Meta Ads)</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                            Especialista en Facebook & Instagram Ads. Creación de anuncios persuasivos, segmentación avanzada y optimización constante.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center justify-between">
+                        <span class="text-xs text-terracota font-semibold tracking-wider uppercase">Principal</span>
+                        <a href="https://wa.link/r9qzay" target="_blank" rel="noopener noreferrer" class="bg-terracota/20 hover:bg-terracota text-ivory px-3 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5">
+                            <span>Saber más</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Landing Pages -->
+                <div class="bg-[#302722] hover:bg-[#382e29] border border-ivory/10 hover:border-terracota/50 p-8 rounded-3xl transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-terracota/20 text-terracota flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-ivory mb-3">Landing Pages</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                            Diseño y estructuración de páginas de aterrizaje optimizadas para convertir visitantes en clientes potenciales o compradores.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center justify-between">
+                        <span class="text-xs text-terracota font-semibold tracking-wider uppercase">Conversión</span>
+                        <a href="https://wa.link/igqld1" target="_blank" rel="noopener noreferrer" class="bg-terracota/20 hover:bg-terracota text-ivory px-3 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5">
+                            <span>Saber más</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Social Media -->
+                <div class="bg-[#302722] hover:bg-[#382e29] border border-ivory/10 hover:border-terracota/50 p-8 rounded-3xl transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-terracota/20 text-terracota flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-hashtag"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-ivory mb-3">Redes Sociales</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                            Llevo tus redes sociales con estrategia, contenido visual atractivo y constancia para construir comunidad y autoridad.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center justify-between">
+                        <span class="text-xs text-terracota font-semibold tracking-wider uppercase">Presencia</span>
+                        <a href="https://wa.link/9fj5go" target="_blank" rel="noopener noreferrer" class="bg-terracota/20 hover:bg-terracota text-ivory px-3 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5">
+                            <span>Saber más</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Google Business & SEO -->
+                <div class="bg-[#302722] hover:bg-[#382e29] border border-ivory/10 hover:border-terracota/50 p-8 rounded-3xl transition-all duration-300 flex flex-col justify-between group shadow-xl md:col-span-2 lg:col-span-2">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-terracota/20 text-terracota flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-magnifying-glass-location"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-ivory mb-3">Google Business & SEO Local</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                            Optimización de tu perfil de Google Business y posicionamiento SEO local para que tus clientes te encuentren fácilmente en tu zona.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center justify-between">
+                        <span class="text-xs text-terracota font-semibold tracking-wider uppercase">Visibilidad Local</span>
+                        <a href="https://wa.link/wl0344" target="_blank" rel="noopener noreferrer" class="bg-terracota/20 hover:bg-terracota text-ivory px-3 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5">
+                            <span>Saber más</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Methodology & Investment Section with Interactive Calculator -->
+    <section id="metodologia" class="py-24 bg-[#251e1a] border-t border-ivory/5 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracota/10 text-terracota text-xs font-semibold uppercase">
+                        Metodología & Inversión
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-ivory tracking-tight">
+                        Estrategia inteligente: <span class="text-terracota italic">Empieza con 5€ al día</span>
+                    </h2>
+                    <p class="text-ivory/80 leading-relaxed font-light">
+                        No hace falta arriesgar grandes presupuestos desde el primer día. Mi metodología está diseñada para validar tu oferta en el mercado de manera segura y eficiente.
+                    </p>
+
+                    <div class="bg-espresso border-2 border-terracota/40 p-6 rounded-3xl shadow-xl space-y-3 relative">
+                        <div class="absolute -top-3 right-6 bg-terracota text-ivory text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wide">
+                            Recomendación JULI ROAS
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-terracota/20 flex items-center justify-center text-terracota font-bold text-lg">
+                                <i class="fa-solid fa-coins"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-ivory text-lg">Inversión Inicial: 5€ / día</h4>
+                                <p class="text-xs text-ivory/70">Ideal para testear y validar tu primera campaña</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-ivory/80 leading-relaxed pt-2 border-t border-ivory/10 font-light">
+                            Comenzamos con una inversión accesible de <strong class="text-ivory font-medium">5€ diarios en tu primera campaña</strong> (150 €/mes) para recopilar datos clave del público. Una vez identificados los anuncios ganadores, aumentamos la inversión de forma progresiva para escalar tus resultados.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Interactive Calculator Widget -->
+                <div class="lg:col-span-6">
+                    <div class="bg-espresso border border-ivory/15 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-ivory/10 pb-4">
+                            <div>
+                                <span class="text-xs text-terracota font-bold uppercase tracking-wider">Herramienta Interactiva</span>
+                                <h3 class="font-serif text-xl font-bold text-ivory mt-0.5">Calculadora de Leads</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-terracota/20 text-terracota flex items-center justify-center">
+                                <i class="fa-solid fa-calculator text-lg"></i>
+                            </div>
+                        </div>
+
+                        <!-- Texto explicativo sobre el coste del lead -->
+                        <p class="text-xs text-ivory/70 leading-relaxed font-light bg-[#302722] p-3.5 rounded-xl border border-ivory/5">
+                            *Nota orientativa: El coste por lead varía según el tipo de negocio, el sector y el cliente potencial al que nos dirijamos. Esta estimación toma un promedio aproximado de referencia para mostrarte el potencial de tu inversión.
+                        </p>
+
+                        <!-- Slider Input (Starts at 150) -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-ivory/80 font-medium">Presupuesto mensual en anuncios:</span>
+                                <span id="budget-output" class="font-bold text-terracota text-lg">150 €/mes</span>
+                            </div>
+                            <input type="range" id="budget-range" min="150" max="1000" step="50" value="150" class="w-full accent-terracota cursor-pointer bg-ivory/20 rounded-lg h-2">
+                            <div class="flex justify-between text-[11px] text-ivory/50">
+                                <span>150 € (5€/día)</span>
+                                <span>1.000 €</span>
+                            </div>
+                        </div>
+
+                        <!-- Results Grid -->
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div class="bg-[#302722] p-4 rounded-2xl border border-ivory/5 text-center">
+                                <p class="text-xs text-ivory/70 uppercase tracking-wider font-medium">Leads Estimados</p>
+                                <p id="leads-output" class="font-serif text-2xl font-bold text-ivory mt-1">~15</p>
+                                <p class="text-[10px] text-terracota mt-0.5">Basado en coste promedio</p>
+                            </div>
+                            <div class="bg-[#302722] p-4 rounded-2xl border border-ivory/5 text-center">
+                                <p class="text-xs text-ivory/70 uppercase tracking-wider font-medium">Oportunidades</p>
+                                <p id="clients-output" class="font-serif text-2xl font-bold text-ivory mt-1">~3 - 4</p>
+                                <p class="text-[10px] text-terracota mt-0.5">Clientes potenciales calificados</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="#contacto" class="w-full bg-terracota hover:bg-terracota-dark text-ivory py-3 rounded-xl font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2">
+                                <span>Quiero conseguir estos resultados</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel Section -->
+    <section id="testimonios" class="py-24 bg-espresso relative overflow-hidden border-t border-ivory/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="space-y-4 max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracota/10 text-terracota text-xs font-semibold uppercase">
+                        Casos de Éxito
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-ivory">
+                        Lo que dicen <span class="text-terracota italic">nuestros clientes</span>
+                    </h2>
+                    <p class="text-ivory/80 text-base font-light">
+                        Experiencias reales de profesionales y negocios del sector que han transformado sus resultados.
+                    </p>
+                </div>
+                <!-- Navigation buttons for carousel -->
+                <div class="flex items-center gap-3">
+                    <button id="prev-btn" class="w-12 h-12 rounded-2xl bg-[#302722] hover:bg-terracota text-ivory border border-ivory/10 flex items-center justify-center transition-all shadow-md cursor-pointer">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button id="next-btn" class="w-12 h-12 rounded-2xl bg-[#302722] hover:bg-terracota text-ivory border border-ivory/10 flex items-center justify-center transition-all shadow-md cursor-pointer">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel Container -->
+            <div id="carousel-container" class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4">
+                
+                <!-- Testimonial 1: Reforma Integral 1 -->
+                <div class="min-w-[300px] sm:min-w-[380px] lg:min-w-[400px] bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl flex flex-col justify-between snap-start">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-ivory/80 text-sm leading-relaxed font-light italic">
+                            "Empezamos a probar con los 5€ al día como recomendaba Júlia y las solicitudes para reformas integrales se dispararon. Ahora tenemos obras cerradas para los próximos meses sin depender del boca a boca."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-terracota/20 text-terracota font-bold flex items-center justify-center font-serif">
+                            CR
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-ivory">Carlos R.</h4>
+                            <p class="text-xs text-terracota font-medium">Dueño de Empresa de Reformas Integrales</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2: Reforma Integral 2 -->
+                <div class="min-w-[300px] sm:min-w-[380px] lg:min-w-[400px] bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl flex flex-col justify-between snap-start">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-ivory/80 text-sm leading-relaxed font-light italic">
+                            "La estrategia de Meta Ads y la landing page que diseñó Júlia cambiaron por completo nuestro flujo de clientes. Es directo, claro y muy rentable para nuestra empresa de reformas."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-terracota/20 text-terracota font-bold flex items-center justify-center font-serif">
+                            MG
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-ivory">Marc G.</h4>
+                            <p class="text-xs text-terracota font-medium">Dueño de Empresa de Reformas Integrales</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3: Multiservicios Integrales -->
+                <div class="min-w-[300px] sm:min-w-[380px] lg:min-w-[400px] bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl flex flex-col justify-between snap-start">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-ivory/80 text-sm leading-relaxed font-light italic">
+                            "Gestionamos varios gremios en nuestra empresa de multiservicios y necesitábamos captar de forma constante. Con el método de Júlia optimizamos cada euro invertido y la captación es imparable."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-terracota/20 text-terracota font-bold flex items-center justify-center font-serif">
+                            PS
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-ivory">Pedro S.</h4>
+                            <p class="text-xs text-terracota font-medium">Dueño de Empresa de Multiservicios Integrales</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4: Albañil Autónomo -->
+                <div class="min-w-[300px] sm:min-w-[380px] lg:min-w-[400px] bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl flex flex-col justify-between snap-start">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-ivory/80 text-sm leading-relaxed font-light italic">
+                            "Al ser autónomo y ir solo con la albañilería, pensaba que la publicidad online no era para mí. Empezar con el testeo de 5€ diarios fue la mejor decisión; ahora el teléfono no para de sonar."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-terracota/20 text-terracota font-bold flex items-center justify-center font-serif">
+                            DP
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-ivory">David P.</h4>
+                            <p class="text-xs text-terracota font-medium">Autónomo Albañil</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5: Instalador de Pladur -->
+                <div class="min-w-[300px] sm:min-w-[380px] lg:min-w-[400px] bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl flex flex-col justify-between snap-start">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-ivory/80 text-sm leading-relaxed font-light italic">
+                            "Necesitaba captar proyectos específicos de instalación de pladur en la zona. Júlia montó las campañas enseguida y la optimización del perfil de Google Business ha sido clave."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-terracota/20 text-terracota font-bold flex items-center justify-center font-serif">
+                            JM
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-ivory">Javier M.</h4>
+                            <p class="text-xs text-terracota font-medium">Instalador de Pladur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6: Empresa de Pintura -->
+                <div class="min-w-[300px] sm:min-w-[380px] lg:min-w-[400px] bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl flex flex-col justify-between snap-start">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-ivory/80 text-sm leading-relaxed font-light italic">
+                            "Trato excelente y muy profesional. Con nuestra empresa de pintura notamos un incremento brutal de presupuestos solicitados desde la primera semana de campaña. ¡100% recomendable!"
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-ivory/10 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-terracota/20 text-terracota font-bold flex items-center justify-center font-serif">
+                            SL
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-ivory">Sara L.</h4>
+                            <p class="text-xs text-terracota font-medium">Dueña de Empresa de Pintura</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-espresso relative border-t border-ivory/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracota/10 text-terracota text-xs font-semibold uppercase">
+                    Dudas Habituales
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-ivory">
+                    Preguntas <span class="text-terracota italic">Frecuentes</span>
+                </h2>
+                <p class="text-ivory/80 text-base sm:text-lg font-light">
+                    Resolvemos las principales dudas sobre cómo trabajamos juntos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl space-y-4">
+                    <h3 class="font-serif text-xl font-bold text-ivory flex items-start gap-3">
+                        <span class="text-terracota">¿Con qué tipo de negocio trabajas?</span>
+                    </h3>
+                    <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                        Principalmente con empresas de reformas, pero estoy abierta a trabajar con todo tipo de negocios que encajen con mi forma de trabajar y con los servicios que ofrezco. Si crees que puedo ayudarte, hablemos, cuéntame tu proyecto y vemos qué podemos hacer juntos.
+                    </p>
+                </div>
+
+                <div class="bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl space-y-4">
+                    <h3 class="font-serif text-xl font-bold text-ivory flex items-start gap-3">
+                        <span class="text-terracota">¿Tengo que ser una empresa grande para trabajar contigo?</span>
+                    </h3>
+                    <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                        No. Trabajo con negocios que quieren utilizar la publicidad online como una herramienta para crecer, independientemente de su tamaño.
+                    </p>
+                </div>
+
+                <div class="bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl space-y-4">
+                    <h3 class="font-serif text-xl font-bold text-ivory flex items-start gap-3">
+                        <span class="text-terracota">¿La publicidad garantiza conseguir clientes?</span>
+                    </h3>
+                    <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                        La publicidad genera oportunidades y contactos, pero ningún resultado puede garantizarse al 100%. Depende de factores como la oferta, el mercado, la campaña, el presupuesto y la capacidad del negocio para convertir contactos en clientes.
+                    </p>
+                </div>
+
+                <div class="bg-[#302722] border border-ivory/10 p-8 rounded-3xl shadow-xl space-y-4">
+                    <h3 class="font-serif text-xl font-bold text-ivory flex items-start gap-3">
+                        <span class="text-terracota">¿Qué pasa después de contactar contigo?</span>
+                    </h3>
+                    <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                        Primero hacemos una llamada inicial para conocernos y hablar de tu negocio. Después, analizo tu situación para ver qué estrategia tiene sentido y, si ambas partes encajamos, te presento los siguientes pasos.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-24 bg-[#251e1a] border-t border-ivory/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-[#302722] border border-ivory/10 rounded-3xl p-8 sm:p-12 shadow-2xl">
+                
+                <div class="lg:col-span-5 space-y-6 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracota/10 text-terracota text-xs font-semibold uppercase mb-4">
+                            Contacto Directo
+                        </div>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-ivory">
+                            ¿Hablamos por <span class="text-terracota italic">WhatsApp</span>?
+                        </h2>
+                        <p class="text-ivory/80 text-sm sm:text-base mt-4 font-light leading-relaxed">
+                            Escríbeme directamente o rellena el formulario. Analizaremos tu caso para empezar con 5€ al día y escalar tu negocio juntos.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-6">
+                        <a href="https://wa.link/gr3ou4" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-ivory/90 hover:text-terracota transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-terracota/20 text-terracota flex items-center justify-center"><i class="fa-brands fa-whatsapp text-lg"></i></div>
+                            <span class="text-sm font-semibold">+34 603 088 013 (WhatsApp Directo)</span>
+                        </a>
+                        <div class="flex items-center gap-3 text-ivory/90">
+                            <div class="w-10 h-10 rounded-xl bg-terracota/20 text-terracota flex items-center justify-center"><i class="fa-solid fa-envelope"></i></div>
+                            <span class="text-sm">JULIAROASMARKETING@GMAIL.COM</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-ivory/90">
+                            <div class="w-10 h-10 rounded-xl bg-terracota/20 text-terracota flex items-center justify-center"><i class="fa-brands fa-instagram"></i></div>
+                            <span class="text-sm">@juliroas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <form id="contact-form" action="https://formspree.io/f/mdeazwjr" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-ivory/80 uppercase tracking-wider mb-2">Tu Nombre</label>
+                                <input type="text" name="nombre" required placeholder="Ej. Carlos Pérez" class="w-full bg-espresso border border-ivory/20 rounded-xl px-4 py-3 text-ivory placeholder-ivory/40 focus:outline-none focus:border-terracota transition-colors text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-ivory/80 uppercase tracking-wider mb-2">Correo Electrónico</label>
+                                <input type="email" name="email" required placeholder="tucorreo@empresa.com" class="w-full bg-espresso border border-ivory/20 rounded-xl px-4 py-3 text-ivory placeholder-ivory/40 focus:outline-none focus:border-terracota transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-ivory/80 uppercase tracking-wider mb-2">Teléfono / WhatsApp</label>
+                                <input type="tel" name="telefono" placeholder="+34 603 088 013" class="w-full bg-espresso border border-ivory/20 rounded-xl px-4 py-3 text-ivory placeholder-ivory/40 focus:outline-none focus:border-terracota transition-colors text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-ivory/80 uppercase tracking-wider mb-2">Servicio Principal</label>
+                                <select name="servicio" class="w-full bg-espresso border border-ivory/20 rounded-xl px-4 py-3 text-ivory focus:outline-none focus:border-terracota transition-colors text-sm">
+                                    <option>Estrategia Publicitaria</option>
+                                    <option>Campañas Publicitarias (Meta Ads)</option>
+                                    <option>Landing Pages de Conversión</option>
+                                    <option>Gestión de Redes Sociales</option>
+                                    <option>Google Business & SEO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-ivory/80 uppercase tracking-wider mb-2">Cuéntame sobre tu proyecto</label>
+                            <textarea name="mensaje" rows="4" placeholder="¿Cuál es tu objetivo actual de ventas?" class="w-full bg-espresso border border-ivory/20 rounded-xl px-4 py-3 text-ivory placeholder-ivory/40 focus:outline-none focus:border-terracota transition-colors text-sm resize-none h-28"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-terracota hover:bg-terracota-dark text-ivory font-semibold py-4 rounded-xl transition-all shadow-xl hover:shadow-terracota/30 flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Enviar Mensaje a Júlia</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1f1916] border-t border-ivory/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-terracota flex items-center justify-center text-ivory font-bold text-xs font-serif">
+                    JR
+                </div>
+                <span class="font-serif font-bold text-ivory text-base">JULI ROAS | Media Buyer</span>
+            </div>
+
+            <div class="flex items-center gap-4 text-ivory/70 text-lg">
+                <a href="https://wa.link/gr3ou4" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-espresso hover:bg-terracota hover:text-ivory flex items-center justify-center transition-colors border border-ivory/10" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://instagram.com/juliroas" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-espresso hover:bg-terracota hover:text-ivory flex items-center justify-center transition-colors border border-ivory/10" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61594250741848" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-espresso hover:bg-terracota hover:text-ivory flex items-center justify-center transition-colors border border-ivory/10" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+
+            <p class="text-xs text-ivory/50">
+                &copy; 2026 JULI ROAS. Todos los derechos reservados.
+            </p>
+
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions & Calculator Logic -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 30) {
+                navbar.classList.add('shadow-lg', 'bg-espresso/95');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Calculadora Interactiva de Leads (Inicia en 150€ = 5€/día)
+        const budgetRange = document.getElementById('budget-range');
+        const budgetOutput = document.getElementById('budget-output');
+        const leadsOutput = document.getElementById('leads-output');
+        const clientsOutput = document.getElementById('clients-output');
+
+        function updateCalculator() {
+            const budget = parseInt(budgetRange.value);
+            budgetOutput.textContent = budget + ' €/mes';
+            
+            // Coste por lead estimado a 10€
+            const estimatedLeads = Math.round(budget / 10);
+            leadsOutput.textContent = '~' + estimatedLeads;
+
+            // Estimación de oportunidades comerciales / obras cerradas (apx 20-25% de conversión)
+            const minClients = Math.max(1, Math.round(estimatedLeads * 0.20));
+            const maxClients = Math.max(2, Math.round(estimatedLeads * 0.30));
+            clientsOutput.textContent = '~' + minClients + ' - ' + maxClients;
+        }
+
+        budgetRange.addEventListener('input', updateCalculator);
+        updateCalculator();
+
+        // Carousel Scroll & Auto-Play Logic (2.5s)
+        const carouselContainer = document.getElementById('carousel-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        const scrollAmount = 420;
+
+        nextBtn.addEventListener('click', () => {
+            if (carouselContainer.scrollLeft + carouselContainer.clientWidth >= carouselContainer.scrollWidth - 10) {
+                carouselContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                carouselContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (carouselContainer.scrollLeft <= 0) {
+                carouselContainer.scrollTo({ left: carouselContainer.scrollWidth, behavior: 'smooth' });
+            } else {
+                carouselContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        });
+
+        let autoPlayInterval = setInterval(() => {
+            if (carouselContainer.scrollLeft + carouselContainer.clientWidth >= carouselContainer.scrollWidth - 10) {
+                carouselContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                carouselContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }, 2500);
+
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(() => {
+                if (carouselContainer.scrollLeft + carouselContainer.clientWidth >= carouselContainer.scrollWidth - 10) {
+                    carouselContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    carouselContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }, 2500);
+        });
+    </script>
+
+</body>
+</html>
