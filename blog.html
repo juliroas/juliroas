@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog y Consejos de Marketing Digital y Publicidad | JULI ROAS</title>
+    <title>Blog y Consejos</title>
     <meta name="description" content="Artículos y guías de Meta Ads, Google Ads y estrategias de captación de clientes para negocios y emprendedores.">
     
     <!-- Open Graph / Redes Sociales -->
@@ -69,15 +69,15 @@
                 </div>
             </a>
 
-            <!-- Desktop Nav Links -->
+            <!-- Desktop Nav Links (Blog colocado DESPUÉS de Contacto) -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ivory/80">
                 <a href="index.html#sobre-mi" class="hover:text-terracota transition-colors">Sobre mí</a>
                 <a href="index.html#servicios" class="hover:text-terracota transition-colors">Servicios</a>
                 <a href="index.html#metodologia" class="hover:text-terracota transition-colors">Inversión & Método</a>
                 <a href="index.html#testimonios" class="hover:text-terracota transition-colors">Opiniones</a>
-                <a href="blog.html" class="text-terracota font-semibold transition-colors">Blog</a>
                 <a href="index.html#faq" class="hover:text-terracota transition-colors">Preguntas Frecuentes</a>
                 <a href="index.html#contacto" class="hover:text-terracota transition-colors">Contacto</a>
+                <a href="blog.html" class="text-terracota font-semibold transition-colors">Blog</a>
             </nav>
 
             <div class="hidden md:block">
@@ -91,15 +91,15 @@
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
+        <!-- Mobile Menu Dropdown (Blog colocado DESPUÉS de Contacto) -->
         <div id="mobile-menu" class="hidden md:hidden bg-espresso border-b border-ivory/10 px-6 py-6 space-y-4 shadow-xl">
             <a href="index.html#sobre-mi" class="block text-ivory/90 hover:text-terracota font-medium py-1 mobile-link">Sobre mí</a>
             <a href="index.html#servicios" class="block text-ivory/90 hover:text-terracota font-medium py-1 mobile-link">Servicios</a>
             <a href="index.html#metodologia" class="block text-ivory/90 hover:text-terracota font-medium py-1 mobile-link">Inversión & Método</a>
             <a href="index.html#testimonios" class="block text-ivory/90 hover:text-terracota font-medium py-1 mobile-link">Opiniones</a>
-            <a href="blog.html" class="block text-terracota font-semibold py-1 mobile-link">Blog</a>
             <a href="index.html#faq" class="block text-ivory/90 hover:text-terracota font-medium py-1 mobile-link">Preguntas Frecuentes</a>
             <a href="index.html#contacto" class="block text-ivory/90 hover:text-terracota font-medium py-1 mobile-link">Contacto</a>
+            <a href="blog.html" class="block text-terracota font-semibold py-1 mobile-link">Blog</a>
         </div>
     </header>
 
@@ -268,7 +268,7 @@
                 <p>El sector de las reformas y la construcción vive tradicionalmente del "boca a boca". Aunque es una señal de que el trabajo previo es excelente, confiar únicamente en las recomendaciones de antiguos clientes deja tu facturación expuesta a altibajos estacionales.</p>
                 
                 <h3 class="font-serif text-xl font-bold text-ivory pt-2">¿Por qué fallan las agencias generalistas en reformas?</h3>
-                <p>Las reformas no se venden por impulso. Un cliente que va a invertir miles de euros en reformar su cocina o su vivienda completa busca **confianza, profesionalidad visual y cercanía**. Las campañas genéricas que solo muestran textos vacíos no funcionan.</p>
+                <p>Las reformas no se venden por impulso. Un cliente que va a invertir miles de euros en reformar su cocina o su vivienda completa busca <strong>confianza, profesionalidad visual y cercanía</strong>. Las campañas genéricas que solo muestran textos vacíos no funcionan.</p>
                 
                 <h3 class="font-serif text-xl font-bold text-ivory pt-2">La estrategia ganadora:</h3>
                 <ul class="list-disc pl-5 space-y-2">
@@ -313,7 +313,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Cerrar modal al hacer clic fuera del contenido
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 closeModal();
